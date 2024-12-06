@@ -28,7 +28,7 @@
 ```
 explain what does this main function do in detail
 ```
-**Decompiled Code**:
+**Decompiled Code (HLIL)**:
 ```
 11c9 | int32_t main(int32_t argc, char** argv, char** envp)
 11e4 | printf(\"Enter a string: \")
@@ -121,7 +121,7 @@ Finally, the function returns 0, indicating successful execution.
 provide step by step instructions to solve this crackme
 ```
 
-**Decompiled Code:**  
+**Decompiled Code (HLIL):**  
 `same as above`
 
 **Output:**
@@ -147,3 +147,147 @@ Here's a step-by-step guide to solving this crackme based on the `main` function
 By following these steps, you should be able to navigate through the levels of this 
 crackme challenge.
 ```
+### Conversation log 2
+#### Round 1
+**Input:**  
+```
+explain what does the main function do and elaborate in detail
+```
+**Decompiled code (LLIL):**
+```
+11c9 |  int32_t main(int32_t argc, char** argv, char** envp)
+11cd |          push(rbp)
+11ce |          rbp = rsp {__saved_rbp}
+11d1 |          rsp = rsp - 0x70
+11d5 |          rax = &data_2008
+11dc |          rdi = rax
+11df |          eax = 0
+11e4 |          call(printf)
+11e9 |          rdx = [&__TMC_END__].q
+11f0 |          rax = rbp - 0x40 {buf_1}
+11f4 |          esi = 0x28
+11f9 |          rdi = rax {buf_1}
+11fc |          call(fgets)
+1201 |          rax = rbp - 0x40 {buf_1}
+1205 |          rdi = rax {buf_1}
+1208 |          call(strlen)
+120d |          [rbp - 8 {var_10}].d = eax
+1214 |          if ([rbp - 8 {var_10}].d != 6) then 17 @ 0x1416 else 21 @ 0x121a
+1416 |          rax = &data_25c0
+141d |          rdi = rax
+1420 |          call(puts)
+1420 |          goto 26 @ 0x1425
+121a |          rax = &data_2020
+1221 |          rdi = rax
+1224 |          call(puts)
+1229 |          eax = zx.d([rbp - 0x3f {var_47}].b)
+122f |          if (al != 0x34) then 30 @ 0x1405 else 34 @ 0x1235
+1425 |          eax = 0
+142a |          rsp = rbp
+142a |          rbp = pop
+142b |          <return> jump(pop)
+1405 |          rax = &data_2560
+140c |          rdi = rax
+140f |          call(puts)
+1414 |          goto 26 @ 0x1425
+1235 |          rax = &data_2050
+123c |          rdi = rax
+123f |          call(puts)
+1244 |          eax = zx.d([rbp - 0x40 {buf_1}].b)
+124a |          if (al != 0x33) then 39 @ 0x13f4 else 43 @ 0x1250
+13f4 |          rax = &data_2518
+13fb |          rdi = rax
+13fe |          call(puts)
+1403 |          goto 26 @ 0x1425
+1250 |          rax = &data_2080
+1257 |          rdi = rax
+125a |          call(puts)
+125f |          rax = &data_20b8
+1266 |          rdi = rax
+1269 |          call(puts)
+126e |          rax = &data_2100
+1275 |          rdi = rax
+1278 |          call(puts)
+127d |          rax = &data_2157
+1284 |          rdi = rax
+1287 |          eax = 0
+128c |          call(printf)
+1291 |          rdx = [&__TMC_END__].q
+1298 |          rax = rbp - 0x70 {buf}
+129c |          esi = 0x28
+12a1 |          rdi = rax {buf}
+12a4 |          call(fgets)
+12a9 |          rax = rbp - 0x70 {buf}
+12ad |          rdi = rax {buf}
+12b0 |          call(strlen)
+12b5 |          [rbp - 0xc {var_14_1}].d = eax
+12b8 |          eax = [rbp - 0xc {var_14_1}].d
+12be |          if (eax != [rbp - 8 {var_10}].d) then 67 @ 0x13e3 else 71 @ 0x12c4
+13e3 |          rax = &data_24f0
+13ea |          rdi = rax
+13ed |          call(puts)
+13f2 |          goto 26 @ 0x1425
+12c4 |          [rbp - 4 {i}].d = 0
+12cb |          goto 73 @ 0x130c
+130c |          if ([rbp - 4 {i}].d s<= 4) then 74 @ 0x12cd else 86 @ 0x130e
+12cd |          eax = [rbp - 4 {i}].d
+12d0 |          rax = sx.q(eax)
+12d2 |          eax = zx.d([rbp + rax - 0x70].b)
+12d7 |          eax = sx.d(al)
+12da |          edx = (rax - 0x30).d
+12dd |          eax = [rbp - 4 {i}].d
+12e0 |          rax = sx.q(eax)
+12e2 |          eax = zx.d([rbp + rax - 0x40].b)
+12e7 |          eax = sx.d(al)
+12ea |          eax = eax - 0x30
+12ed |          eax = eax + eax
+12f1 |          if (edx == eax) then 106 @ 0x1304 else 108 @ 0x12f3
+130e |          rax = &data_21d0
+1315 |          rdi = rax
+1318 |          call(puts)
+131d |          rax = &data_2210
+1324 |          rdi = rax
+1327 |          call(puts)
+132c |          rax = &data_2268
+1333 |          rdi = rax
+1336 |          call(puts)
+133b |          rax = &data_22c0
+1342 |          rdi = rax
+1345 |          call(puts)
+134a |          rax = &data_2320
+1351 |          rdi = rax
+1354 |          call(puts)
+1359 |          rax = &data_2365
+1360 |          rdi = rax
+1363 |          eax = 0
+1368 |          call(__isoc99_scanf)
+1374 |          if ([rbp - 8 {var_10}].d != 0x1b39) then 112 @ 0x13b4 else 122 @ 0x1376
+1304 |          [rbp - 4 {i}].d = [rbp - 4 {i}].d + 1
+1304 |          goto 73 @ 0x130c
+12f3 |          rax = &data_2170
+12fa |          rdi = rax
+12fd |          call(puts)
+1302 |          goto 86 @ 0x130e
+13b4 |          rax = &data_2430
+13bb |          rdi = rax
+13be |          call(puts)
+13c3 |          rax = &data_2480
+13ca |          rdi = rax
+13cd |          call(puts)
+13d2 |          rax = &data_24a8
+13d9 |          rdi = rax
+13dc |          call(puts)
+13e1 |          goto 26 @ 0x1425
+1376 |          rax = &data_2368
+137d |          rdi = rax
+1380 |          call(puts)
+1385 |          rax = &data_2390
+138c |          rdi = rax
+138f |          call(puts)
+1394 |          rax = &data_23b0
+139b |          rdi = rax
+139e |          call(puts)
+13a3 |          rax = &data_2415
+13aa |          rdi = rax
+13ad |          call(puts)
+13b2 |          goto 26 @ 0x1425" 
