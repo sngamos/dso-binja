@@ -86,29 +86,29 @@ explain what does this main function do in detail
 **Output**:
 ```
 The `main` function appears to be a multi-level challenge or validation routine. Here's a detailed breakdown:  
-1. **Input Prompt**: 
+1. Input Prompt: 
 The user is prompted to enter a string.\n\n  
-2. **Level 1 Check**:
+2. Level 1 Check:
 - The program reads a string into `buf_1` and checks its length.
 - If the length is not 6, it prints a failure message for Level 1.
 - If the length is 6, it proceeds to Level 2.
-3. **Level 2 Check**;
+3. Level 2 Check;
 - It checks if a specific character (`var_47`) is equal to `0x34`.
 - If not, it prints a failure message for Level 2.
 - If it is, it proceeds to Level 2.5.  
-4. **Level 2.5 Check**:
+4. Level 2.5 Check:
 - It checks if the first character of `buf_1` is `0x33`.
 - If not, it prints a failure message.
 - If it is, it proceeds to the next stage.  
-5. **Second Input Prompt**:
+5. Second Input Prompt:
 - The user is prompted to enter a second string.  
-6. **Level 3 Check**:
+6. Level 3 Check:
 - It checks if the length of the second string matches the length of the first string.
 - If not, it prints a failure message.
 - If it matches, it performs a loop to check if each character of the second string, when adjusted, matches twice the corresponding character of the first string.
 - If any character fails this check, it prints a failure message and breaks the loop.
 - If all checks pass, it prints a success message for Level 3.  
-7. **Bonus Level Check**:
+7. Bonus Level Check:
 - The user is prompted to enter a value.
 - It checks if the length of the first string (`rax_1`) is `0x1b39`.
 - If not, it prints a failure message for the bonus level.
@@ -128,19 +128,19 @@ provide step by step instructions to solve this crackme
 ```
 Here's a step-by-step guide to solving this crackme based on the `main` function:
 
-1. **Level 1: String Length Check**  
+1. Level 1: String Length Check  
 - Input a string with exactly 6 characters when prompted. This will pass the first check.
-2. **Level 2: Character Check**   
+2. Level 2: Character Check   
 - Ensure that the character at `var_47` is `0x34`. This might be a hardcoded value or a result of some operation. You may need to investigate how `var_47` is set or manipulated before this check.
-3. **Level 2.5: First Character Check**   
+3. Level 2.5: First Character Check   
 - The first character of your input string (`buf_1`) should be `0x33`, which is the ASCII value for '3'. Start your string with '3'.
-4. **Level 3: Second String Input**
+4. Level 3: Second String Input
 - Enter a second string when prompted. Ensure the length of this string matches the first string (6 characters).
 - For each character in the second string, ensure that when adjusted by subtracting `0x30`, it equals twice the corresponding character in the first string (also adjusted by `0x30`).
 - This implies a mathematical relationship between the characters of the two strings.
-5. **Bonus Level: Length Check**
+5. Bonus Level: Length Check
 - The program checks if the length of the first string (`rax_1`) is `0x1b39`. Since this is not possible with a 6-character string, this condition will always fail unless there's a specific manipulation or context not visible in the current decompilation.
-6. **General Tips**   
+6. General Tips   
 - Use a debugger to step through the program and observe how variables are set and manipulated.
 - Pay attention to any hardcoded values or operations that might affect the checks.
 - Consider edge cases and how input might be transformed or validated.
@@ -291,3 +291,28 @@ explain what does the main function do and elaborate in detail
 13aa |          rdi = rax
 13ad |          call(puts)
 13b2 |          goto 26 @ 0x1425" 
+```
+**Output:**
+```
+The main function performs several operations, primarily involving user input and conditional checks. Here's a detailed breakdown:
+Setup and Initialization: 
+The function sets up the stack frame and reserves space for local variables.
+It initializes a buffer and prepares for input operations.
+Input Handling:
+It uses fgets to read a string from the standard input into a buffer (buf_1).
+The length of the input string is calculated using strlen.
+Conditional Checks:
+The function checks if the length of the input string is 6. If not, it prints a message from data_25c0 and exits.
+It checks if the first character of the input is '4'. If not, it prints a message from data_2560 and exits.
+It checks if the second character of the input is '3'. If not, it prints a message from data_2518 and exits.
+Further Input and Validation:
+If the initial checks pass, it prints several messages and prompts for another input using fgets.
+It compares the length of this new input with the previous input length. If they don't match, it prints a message from data_24f0 and exits.
+Loop and Arithmetic Check:
+A loop iterates over the first five characters of the new input.
+For each character, it performs arithmetic operations and checks if a condition holds. If any check fails, it prints a message from data_2170 and exits.
+Final Validation:
+If all checks pass, it performs a final comparison with a specific value (0x1b39). If this fails, it prints several messages and exits.
+If successful, it prints a series of messages indicating success.
+The function involves multiple input checks and validations, likely as part of a challenge or verification process.
+```
