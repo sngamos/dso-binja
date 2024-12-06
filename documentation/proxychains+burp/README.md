@@ -74,6 +74,6 @@ Then forward all the packets to allow Binary Ninja to connect to Sidekick endpoi
 1. In Binary Ninja GUI open any file.  
 2. Click on any function and input any prompt into the chatbot.
 ![alt text for screen readers](images/binja_ss.png "Chatbot option selected on the taskbar on the left.")
-3. In Burp you should now see a network traffic packet being sent.
-![alt text for screen readers](images/burp_ss.png "Decrypted network packet with readable content.")
+3. In Burp you should now see a network traffic packet being sent.  
+![alt text for screen readers](images/burp_ss.png "Decrypted network packet with readable content.")  
 4. **Go crazy!!**
