@@ -316,3 +316,112 @@ If all checks pass, it performs a final comparison with a specific value (0x1b39
 If successful, it prints a series of messages indicating success.
 The function involves multiple input checks and validations, likely as part of a challenge or verification process.
 ```
+
+## Tests done on stripped binaries
+### Conversation log 1
+#### Round 1
+**Input:**
+``` 
+explain in detail what this function does?
+```
+**Decompiled Code (HLIL):**
+```
+8a0 |   void sub_8a0(int64_t arg1, void* arg2) __noreturn
+8a2 | void* r13 = arg2
+8a7 | int64_t r12 = arg1
+8ad | int64_t rbx
+8ad | int64_t var_20 = rbx
+8ad | int64_t* rsp = &var_20
+8ae | int32_t rdx = *(arg2 + 0x14)
+8b1 | void* i = arg2 + 0x18
+8b1 | 
+8c7 | if (i != arg2 + (rdx u>> 0xc & 0xfff) + 0x18)  {\"GNU\"}
+906 |     do
+8c9 |         void* rax_4 = *i
+8c9 |         
+8cf |         if (rax_4 == 0)
+8cf |             break
+8cf |         
+8d8 |         if (*(rax_4 + 0x28) != 0)
+8dc |             arg2 = i
+8df |             arg1 = r12
+8e2 |             *(rsp - 8) = &data_8e7
+8e2 |             rsp -= 8
+8e7 |             rax_4 = *i
+8ea |             rdx = *(r13 + 0x14)
+8ea |         
+8f1 | \u2753\ufe0f        i += *(rax_4 + 0x10)
+906 |     while (i != r13 + (rdx u>> 0xc & 0xfff) + 0x18)  {\"GNU\"}
+906 | 
+908 | *rsp
+908 | rsp[1]
+909 | rsp[2]
+90a | rsp[3]
+920 | char r8 = arg2.b
+92e | uint64_t rsi_1 = *(arg1 + arg2.b * 0x18 + 0x10)\n92e | 
+935 | if (rsi_1.d != 0)
+965 |     int32_t i_1
+965 |     
+965 |     do
+93a |         char rax_12 = r8 - rsi_1.b
+94a |         int64_t* rdi_2 = arg1 + rax_12 * 0x18
+94e |         *rdi_2 = 0
+955 |         rdi_2[1] = 0
+95d |         *(arg1 + rax_12 * 0x18 + 0x10) = 0
+962 |         i_1 = rsi_1.d
+962 |         rsi_1 = rsi_1.d - 1
+965 |     while (i_1 != 1)
+965 | 
+96a | int32_t i_2 = 0
+96f | uint64_t rdi_5 = (rdx.b + 3) s>> 2
+96f | 
+972 | if (rdi_5.d != 0)
+9a3 |     do
+974 |         char rax_15 = r8 + i_2.b
+978 |         i_2 += 1
+989 |         rsi_1 = arg1 + rax_15 * 0x18
+98d |         *rsi_1 = 0
+994 |         *(rsi_1 + 8) = 0
+99c |         *(arg1 + rax_15 * 0x18 + 0x10) = 0
+9a3 |     while (rdi_5.d != i_2)
+9a3 | 
+9b4 | uint64_t rsi_4 = rsi_1.b
+9bc | void* rax_20 = rdi_5 + rsi_1.b * 0x18
+9c0 | *rax_20 = 0
+9c7 | *(rax_20 + 8) = 0
+9d3 | *(rdi_5 + rsi_4 * 0x18 + 0x10) = 0
+9d3 | 
+9e3 | if (i_2 u<= 1)
+9e3 |     goto label_9e5
+9e3 | 
+9f1 | while (i_2 == 3)
+9e5 |     label_9e5:
+9e5 |     *(rsi_4 + 0x28) -= 4
+9e5 | 
+a14 | (*(rdi_5 + 0x54) & 1) != 0 && *(*(rdi_5 - 0x18) + 8) == rsi_4.d  {\"Linux\"}
+a1c | noreturn sub_a20(rdi_5, rsi_4) __tailcall"
+```
+**Output:**
+```
+The function sub_8a0 appears to be manipulating data structures, possibly related to memory management or data processing. Here's a detailed breakdown of its operations:
+Initialization: 
+The function takes two arguments: arg1 (an integer) and arg2 (a pointer).
+It initializes local variables and pointers, setting up a stack frame.
+Loop and Condition:
+The function enters a loop that iterates over a range of memory addresses starting from arg2 + 0x18.
+It checks if the pointer i equals a calculated address based on arg2 and a shifted value from rdx.
+Pointer Dereferencing:
+Inside the loop, it dereferences a pointer rax_4 from i.
+If rax_4 is null, the loop breaks.
+If a specific offset of rax_4 is non-zero, it updates arg2 and arg1, adjusts the stack pointer, and continues processing.
+Data Manipulation:
+The function performs operations on data structures, setting certain memory locations to zero.
+It uses loops to iterate over elements, modifying them based on conditions.
+Conditional Logic:
+It contains conditional checks and loops that manipulate indices and pointers.
+The function uses bitwise operations and comparisons to control flow.
+Final Operations:
+The function checks conditions involving bitwise operations and pointer comparisons.
+It calls another function sub_a20 with two arguments, possibly indicating a continuation or cleanup operation.
+Overall, sub_8a0 seems to be involved in complex data processing, possibly related to memory or data structure management. The exact purpose would depend on the context in which this function is used within the binary.
+```
